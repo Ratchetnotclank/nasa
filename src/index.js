@@ -1,20 +1,26 @@
 const nasaKey = process.env.NASA_KEY
 
 // Get daily image
-
-myFunction();
-async function myFunction() {
-    const dailyImageUrl = `https://api.nasa.gov/planetary/apod?api_key=${nasaKey}`;
-
+updateDailyimage();
+async function updateDailyimage() {
     const imageElement = document.getElementById('dailyImage');
     const imageTitleElement = document.getElementById('dailyImageTitle')
 
+    const { url, title } = await getDailyImage()
+
+    imageElement.src = url;
+    imageElement.alt = title;
+    imageTitleElement.textContent = title;
+}
+async function getDailyImage() {
+    const dailyImageUrl = `https://api.nasa.gov/planetary/apod?api_key=${nasaKey}`;
 
     const response = await fetch(dailyImageUrl);
     const jsonResponse = await response.json();
-    const imageUrl = jsonResponse.url;
-    const imageTitle = jsonResponse.title;
-    imageElement.src = imageUrl;
-    imageElement.alt = imageTitle;
-    imageTitleElement.textContent = imageTitle;
+
+    return {
+        url: jsonResponse.url,
+        title: jsonResponse.title
+    }
+
 }
