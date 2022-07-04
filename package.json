@@ -1,0 +1,23 @@
+{
+  "name": "nasa",
+  "version": "1.0.0",
+  "description": "Im stupid.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel serve index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ratchetnotclank/nasa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ratchetnotclank/nasa/issues"
+  },
+  "homepage": "https://github.com/Ratchetnotclank/nasa#readme",
+  "dependencies": {
+    "parcel": "^2.6.2"
+  }
+}
